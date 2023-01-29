@@ -9,7 +9,7 @@ main {
 .backgr {
     z-index: 10;
     width: 100%;
-    background-image: url("../media/bgr.jpg");
+    background-image: url("media/bgr.jpg");
 }
 .dv {
     z-index: 20px;
