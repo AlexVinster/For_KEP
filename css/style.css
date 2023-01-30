@@ -21,7 +21,7 @@ main {
     z-index: 20px;
     background-color: rgba(255, 255, 255, 0.418);
 }
-footer{
+footer {
     height: 100px; text-align: center; 
     padding-top: 5px; margin: 10px auto;
     font-size: 10px;
@@ -113,7 +113,7 @@ footer{
     }
   
     to {
-      margin-left: 20%;
+      margin-left: 380px;
       width: 100%;
     }
   }
@@ -132,3 +132,8 @@ footer{
     transition-property: background-color;
     transition-duration: 0.5s;
   }
+
+/*BORDER*/
+  .myphoto {
+    border-radius: 20%;
+}
