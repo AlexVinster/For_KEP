@@ -142,7 +142,7 @@ footer {
     transition-duration: 0.5s;
   }
   .gml_color_anim {
-    color: rgb(0, 255, 38);
+    color: rgb(30, 0, 255);
     transition-property: text;
     transition-duration: 0.5s;
     transition-property: background-color;
