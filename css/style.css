@@ -152,6 +152,7 @@ footer {
 /*BORDER*/
   .myphoto {
     border-radius: 20%;
+    float: left
 }
 
 /* FLEXBOXES */
