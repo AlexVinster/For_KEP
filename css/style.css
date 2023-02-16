@@ -1,3 +1,7 @@
+body {
+    font-size: 100%;
+}
+
 aside {
     text-align: center; padding-top: 0px; 
     width: 300px; float: left;
@@ -88,13 +92,14 @@ footer {
 }
 .alert.info {
     background-color: #2196F3;
-    /*top: 70px;*/
+    top: 5px;
     left: auto;
     right: 10px;
     z-index: 20;
 }
 .alert.warning {
     background-color: #ff9800; 
+    top: 5px;
     left: auto;
     right: 10px;
     z-index: 10;
@@ -112,6 +117,7 @@ footer {
 .closebtn:hover {
     color: black;
 }
+
 
 /* ANIMATIONS */
 
@@ -137,7 +143,7 @@ footer {
         transition-duration: 3s;
   }
   .numb_color_anim {
-    color: rgb(0, 255, 38);
+    color: rgb(112, 3, 228);
     transition-property: background-color;
     transition-duration: 0.5s;
   }
@@ -154,6 +160,50 @@ footer {
     border-radius: 20%;
     float: left
 }
+
+
+/* NAVIGATION */
+.container {
+    margin: 0 auto;
+    width: 960px;
+}
+.fou_ui {
+    margin: 0;
+    padding: 0;
+}
+.for_ui li {
+    list-style-type: none;
+}
+.for_a {
+    text-decoration: none;
+}
+.for_p {
+    font-size: 15px;
+    line-height: 1.3em;
+}
+.page-navigation {
+    background-color: rgba(82, 27, 141, 0.679);
+    border-color: #101010;
+    min-height: 64px;
+}
+.page-navigation li {
+    float: left;
+    width: 100px;
+}
+.page-navigation a {
+    display: block;
+    color: #9d9d9d;
+    line-height: 4em;
+    font-weight: bold;
+    text-align: center;
+}
+.page-navigation li a:hover {
+    color: yellowgreen;
+    background-color: black;
+}
+
+
+
 
 /* FLEXBOXES */
 /*
