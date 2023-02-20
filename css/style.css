@@ -217,7 +217,7 @@ footer {
     }
 }
 .neon-border {
-    border: 2px solid #fff;
-    border-radius: 10px;
+    /* border: 2px solid #00000000;
+    border-radius: 10px; */
     animation: neon-glow 2s ease-in-out infinite;
 }
