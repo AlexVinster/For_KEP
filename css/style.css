@@ -31,7 +31,7 @@ main {
     background-size: cover;
     background-position: center center;
 }
-.style_for_span{
+.style_for_span {
     font-style: oblique;
     font-weight: bold;
 }
@@ -203,32 +203,21 @@ footer {
 }
 
 
+/*НЕОН*/
 
-
-/* FLEXBOXES */
-/*
-.container {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
-    margin-left: 36%;
+@keyframes neon-glow {
+    0% {
+        box-shadow: 0 0 10px #410bcc;
+    }
+    50% {
+        box-shadow: 0 0 40px #ff0baa;
+    }
+    100% {
+        box-shadow: 0 0 10px #c20707;
+    }
 }
-.container_items {
-    width: 150px;
-    margin: 10px;
-    background-color: #dfdfdf;
-    border: 3px solid #333;
-    text-align: center;
-    color: #333;
+.neon-border {
+    border: 2px solid #fff;
+    border-radius: 10px;
+    animation: neon-glow 2s ease-in-out infinite;
 }
-.item-1 {
-    min-height: 50px;
-}
-.item-2 {
-    min-height: 100px;
-}
-.item-3 {
-    min-height: 200px;
-} */
