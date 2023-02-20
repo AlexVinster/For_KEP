@@ -1,7 +1,7 @@
 body {
     font-size: 100%;
-}
 
+}
 aside {
     text-align: center; padding-top: 0px; 
     width: 300px; float: left;
@@ -72,6 +72,7 @@ footer {
 .gml:hover {
     background-color: violet;
     color: rgb(0, 0, 0);
+    cursor: pointer;
 }
 .blur {
     padding-top: 5px;
@@ -116,8 +117,11 @@ footer {
 }
 .closebtn:hover {
     color: black;
+    cursor: pointer;
 }
-
+.closebtn:active {
+    cursor: grabbing;
+}
 
 /* ANIMATIONS */
 
@@ -200,6 +204,10 @@ footer {
 .page-navigation li a:hover {
     color: yellowgreen;
     background-color: black;
+    cursor: grab;
+}
+.page-navigation li a:active {
+    cursor: grabbing;
 }
 
 
@@ -217,7 +225,23 @@ footer {
     }
 }
 .neon-border {
-    /* border: 2px solid #00000000;
-    border-radius: 10px; */
     animation: neon-glow 2s ease-in-out infinite;
+}
+
+
+/*ANIM FOR CONTACT*/
+
+.anim {
+    animation-name: anim;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+/* Визначаємо стиль ключових кадрів для анімації */
+@keyframes anim {
+    0% { color: red; } /* перший колір */
+    25% { color: rgb(255, 0, 208); } /* другий колір */
+    50% { color: rgb(189, 2, 236); } /* третій колір */
+    75% { color: green; } /* четвертий колір */
+    100% { color: red; } /* повертаємось до початкового кольору */
 }
