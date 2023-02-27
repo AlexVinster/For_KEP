@@ -10,6 +10,9 @@ main {
     padding-top: 0px;
  
 }
+h2 {
+    font-size: 23px;
+}
 
 .underline {
     text-decoration: underline;
@@ -38,11 +41,12 @@ main {
 .dv {
     background-color: rgba(255, 255, 255, 0.418);
 }
-footer {
-    height: 100px; text-align: center; 
+.jobs {
+    text-align: center; 
     padding-top: 5px; margin: 10px auto;
-    font-size: 10px;
+    font-size: 24px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-bottom: 10px;
 }
 #name {
     font-size: 25px;
@@ -78,6 +82,25 @@ footer {
     padding-top: 5px;
     filter: blur(10px);
 }
+.lr3_button {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 4px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .lr3_button:hover {
+    background-color: #3e8e41;
+  }
+  
+/*------------------------------------*/
 
 /* ALLERTS */ 
 .alert {
@@ -122,6 +145,7 @@ footer {
 .closebtn:active {
     cursor: grabbing;
 }
+/*---------------------------------------------*/
 
 /* ANIMATIONS */
 
@@ -158,13 +182,14 @@ footer {
     transition-property: background-color;
     transition-duration: 0.5s;
   }
+/*-------------------------------------------------------------*/
 
 /*BORDER*/
   .myphoto {
     border-radius: 20%;
     float: left
 }
-
+/*-------------------------------*/
 
 /* NAVIGATION */
 .container {
@@ -209,7 +234,7 @@ footer {
 .page-navigation li a:active {
     cursor: grabbing;
 }
-
+/*----------------------------------------*/
 
 /*НЕОН*/
 
