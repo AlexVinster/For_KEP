@@ -1,0 +1,21 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1 {
+    color: green;
+}
+article header p {
+    background-color: red;
+    color: white;
+}
+article figure {
+    width: 600px;
+    border: 3px solid black;
+    padding: 5px;
+}
+article figure img {
+    width: 100%;
+}
+article {
+    width: 800px;
+}

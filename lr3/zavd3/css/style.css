@@ -1,0 +1,21 @@
+.site-nav {
+    background-color: palevioletred;
+    list-style: none;
+    padding: 0;
+    width: 200px;
+    border: 1px solid mediumvioletred;
+}
+.site-nav .site-nav-item {
+    border-bottom: 1px solid mediumvioletred;
+    padding: 5px;
+}
+.site-nav .site-nav-item:last-child {
+    border-bottom: none;
+}
+.site-nav .site-nav-item a {
+    color: white;
+    text-decoration: none;
+}
+.site-nav .site-nav-item a:hover {
+    text-decoration: underline;
+}
