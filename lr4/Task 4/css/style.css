@@ -1,0 +1,40 @@
+.battery {
+    position: relative;
+    width: 75px;
+    height: 25px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
+
+.battery::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: green;
+    width: calc(var(--level, 100%));
+}
+
+.battery[data-level="25"]::before {
+    --level: 25%;
+    background-color: red;
+}
+
+.battery[data-level="50"]::before {
+    --level: 50%;
+    background-color: yellow;
+}
+
+.battery::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: -5px;
+    bottom: 5px;
+    width: 2px;
+    border-right: 4px solid black;
+}

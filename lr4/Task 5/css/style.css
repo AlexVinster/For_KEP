@@ -1,0 +1,23 @@
+body {
+    padding-top: 50px;
+}
+table {
+    border-collapse: collapse;
+    margin: auto;
+    border: 2px solid black;
+    }
+    
+    td {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 70px;
+    font-family: "Arial Unicode MS", sans-serif;
+    /* position: relative; */
+    }
+    
+    tr:nth-child(even) td:nth-child(odd),
+    tr:nth-child(odd) td:nth-child(even) {
+    background-color: rgb(162, 162, 162);
+    }
+    
