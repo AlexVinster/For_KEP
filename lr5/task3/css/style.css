@@ -1,0 +1,93 @@
+.all {
+	height: 510px;
+	text-align: center;
+	font-family: 'Arial, sans-serif', sans-serif;
+}
+.container, .container1 {
+	float: left;
+	margin-right: 30px;
+}
+.container {
+	border: 3px solid #198f75;
+	border-bottom: 15px solid #198f75;
+}
+.container1 {
+	border: 3px solid #d28006;
+	border-bottom: 15px solid #d28006;
+}
+.container2 {
+	border: 3px solid #a22926;
+	border-bottom: 15px solid #a22926;
+	float: left;
+}
+.top, .top1, .top2 {
+	padding-top: 20px;
+	height: 110px;
+	background-color: #16a086;
+	border-bottom: 15px solid #198f75;
+	color: white;
+	font-weight: bold;
+	font-size: 35px;
+	text-align: center;
+}
+.top1 {
+	background-color: #f39c11;
+	border-bottom: 15px solid #d28006;
+}
+.top2 {
+	background-color: #c1392b;
+	border-bottom: 15px solid #a22926;
+}
+p {
+	margin-top: 15px;
+	font-size: 25px;
+	font-weight: normal;
+}
+.first {
+	font-weight: bold;
+	color: grey;
+}
+.two {
+	color: grey;
+	font-weight: normal;
+}
+.info {
+	margin-top: 20px;
+	width: 270px;
+}
+.line {
+	position: relative;
+	margin-top: 30px;
+	padding-top: 30px;
+}
+.line::before {
+	content: "";
+	  position: absolute;
+	  top: 0;
+	  left: 50%;
+	  transform: translateX(-50%);
+	 width: 240px;
+	  border-top: 2px dashed #ccc;
+}
+.sign, .sign1, .sign2 {
+	text-transform: uppercase;
+	display: inline-block;
+	width: 140px;
+	height: 55px;
+	margin-bottom: 30px;
+	background-color: #16a086;;
+	text-align: center;
+	line-height: 55px;
+	color: white;
+}
+.sign1 {
+	background-color: #f39c11;
+}
+.sign2 {
+	background-color: #c1392b;
+}
+
+.sign:hover, .sign1:hover, .sign2:hover {
+	color: black;
+	cursor: pointer;
+}

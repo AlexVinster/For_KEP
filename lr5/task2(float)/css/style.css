@@ -1,0 +1,30 @@
+.row{		
+	clear: both;
+}
+.komr {
+	width: 70px;
+	border: 1px solid black;
+	background-color: #d5ffb9;
+}
+.lt {
+	width: 180px;
+	border: 1px solid black;
+	background-color: #d5ffb9;
+}
+#title {
+	text-align: center;
+	width: 540px;
+	border: 1px solid black;
+	background-color: #5dc430;
+	font-weight: bold;
+	color: white;
+	text-transform: uppercase;
+}
+div:nth-child(odd) {
+	background-color: #e6ffd3;
+}
+
+div {
+	height: 18px;
+	float: left;
+}

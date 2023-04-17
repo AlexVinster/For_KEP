@@ -1,0 +1,29 @@
+table {
+	border-collapse: collapse;
+}
+
+td#title {
+	text-align: center;
+	background-color: #5dc430;
+	color: white;
+	font-size: 15px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+td {
+	background-color: #d5ffb9;
+	border: 1px solid black;
+}
+
+td:nth-child(odd) {
+	background-color: #e6ffd3;
+}
+
+td.student-name, td.subject-name {
+	width: 65px;
+}
+
+td.subject-name:last-child {
+	width: 165px;
+}
