@@ -1,0 +1,51 @@
+.fullwrap {
+    width: 440px;
+    height: 480px;
+    border: 1px solid black;
+    position: absolute;
+    top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+}
+.header {
+    width: 420px;
+    height: 60px;
+    border: 1px solid black;
+    position: relative;
+    top: 10px;
+    left: 9px;
+    right: 10px;
+}
+.wrap {
+    border: 1px solid black;
+    width: 420px;
+    height: 288px;
+    position: relative;
+    top: 20px;
+    left: 9px;
+}
+.main {
+    border: 1px solid black;
+    width: 230px;
+    height: 265px;
+    position: relative;
+    top: 10px;
+    left: 9px;
+    float: left;
+}
+.sidebar {
+    border: 1px solid black;
+    width: 150px;
+    height: 265px;
+    position: relative;
+    top: 10px;
+    left: 259px;
+}
+.footer {
+    border: 1px solid black;
+    width: 420px;
+    height: 80px;
+    position: relative;
+    top: 30px;
+    left: 9px;
+}

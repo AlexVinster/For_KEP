@@ -1,0 +1,109 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Noto+Sans+Miao&display=swap');
+input, .body, .btn, .btn2{
+    border: 2px solid rgba(94,156,158,255);
+    border-radius: 7px;
+}
+body{
+    display: flex;  
+}
+.body{
+    width: 225px;
+    height: 350px;
+    margin-right: 20px;
+    font-family: 'Noto Sans Miao', sans-serif;
+}
+.header{
+    margin: 10px 0;
+    height: 30px;
+    line-height: 26px;
+    width: 225px;
+    background-color: rgba(94,156,158,255);
+    text-align: end;
+    color: white;
+
+}
+span{
+    margin-right: 10px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.1px;
+    font-size: 10px;
+}
+input{
+    height: 20px;
+    display: block;
+    width: 200px;
+    margin: auto;
+    text-align: right;
+    color: rgb(94, 156, 158);
+}
+
+.bigbtn{
+    margin-top: 10px;
+    background-color: rgb(94, 156, 158);
+    width: 70px;
+    height: 30px;
+    margin-right: 10px;
+    margin-left: auto;
+}
+.calc{
+    border: none;
+    border-radius: 0;
+    display: flex;
+}
+.calc:first-child{
+    margin-top: 12.5px;
+}
+.btn:first-child{
+    margin-left: 10px;
+}
+.btn, .btn2{
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    font-size: 18px;
+    text-align: center;
+    line-height: 40px;
+    color: rgba(94,156,158,255);
+}
+.btn:hover, .btn2:hover, .bigbtn:hover{
+    background-color: rgba(94,156,158,255);
+    color: white;
+    cursor: pointer;
+}
+.btn:active, .btn2:active, .bigbtn:active{
+    background-color: rgb(53, 110, 112);
+    color: white;
+}
+
+.calcwrap2{
+    position: relative;
+}
+.calc2{
+    position: relative;
+}
+.btn2{
+    position: absolute;
+    top: 12.5px;
+}
+.calc2 .btn2:nth-child(1){
+    left: 5px;
+}
+.calc2 .btn2:nth-child(2){
+    left: 58.75px;
+}
+.btn2:nth-child(3){
+    right: 58.75px;
+}
+.btn2:nth-child(4){
+    right: 5px;
+}
+.calc2:nth-child(2){
+    top: 54px;
+}
+.calc2:nth-child(3){
+    top: 108px;
+}
+.calc2:nth-child(4){
+    top: 162px;
+}
