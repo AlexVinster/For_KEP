@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello from JavaScript!</title>
+</head>
+<body style="background-color: gray;">
+    <h1>Task3</h1>
+    <hr>
+
+    <!-- Кнопка для виведення діалогового вікна -->
+    <button id="showDialogButton">Показати діалог</button>
+
+    <script>
+        // Функція, яка виводить діалогове вікно
+        function showDialog() {
+            var userResponse = confirm('Натисніть "ОК", щоб побачити "Hello, world!"');
+            if (userResponse) {
+                alert('Hello, world!');
+            }
+        }
+
+        // Додаємо обробник події для кнопки
+        document.getElementById('showDialogButton').addEventListener('click', showDialog);
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Хочу 12</title>
+</head>
+<body style="background-color: gray;">
+    <h1>Складання двох чисел</h1>
+    <hr>
+
+    <!-- Форма для введення чисел -->
+    <form id="additionForm">
+        <label for="num1">Число 1:</label>
+        <input type="number" id="num1" required>
+        <br>
+        <label for="num2">Число 2:</label>
+        <input type="number" id="num2" required>
+        <br>
+        <button type="button" id="calculateButton">Посчитать</button>
+    </form>
+
+    <!-- Відображення результату -->
+    <p id="result"></p>
+
+    <script>
+        // Функція, яка рахує суму двох чисел та виводить результат
+        function calculateSum() {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+
+            if (!isNaN(num1) && !isNaN(num2)) {
+                var sum = num1 + num2;
+                document.getElementById('result').textContent = 'Результат: ' + sum;
+            } else {
+                document.getElementById('result').textContent = 'Введіть коректні числа';
+            }
+        }
+
+        // Додаємо обробник події для кнопки "Посчитать"
+        document.getElementById('calculateButton').addEventListener('click', calculateSum);
+    </script>
+</body>
+</html>

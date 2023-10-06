@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3.10</title>
+</head>
+<body style="background-color: gray;">
+    <h1>Введення студентів студентської групи</h1>
+    <hr>
+
+    <!-- Форма для введення кількості студентів -->
+    <form id="studentCountForm">
+        <label for="studentCount">Введіть кількість студентів:</label>
+        <input type="number" id="studentCount" min="1" required>
+        <br>
+        <button type="button" id="inputNamesButton">Ввести імена студентів</button>
+    </form>
+
+    <!-- Відображення результату -->
+    <div id="studentNames"></div>
+
+    <script>
+        // Функція, яка запитує імена студентів та виводить їх
+        function inputStudentNames() {
+            var studentCount = parseInt(document.getElementById('studentCount').value);
+
+            if (!isNaN(studentCount) && studentCount >= 1) {
+                var names = [];
+
+                for (var i = 1; i <= studentCount; i++) {
+                    var fullName = prompt('Введіть прізвище і ім\'я студента ' + i + ':');
+                    names.push(fullName);
+                }
+
+                var studentNamesDiv = document.getElementById('studentNames');
+                studentNamesDiv.innerHTML = '<h2>Прізвища та імена студентів:</h2>';
+                names.forEach(function (name) {
+                    studentNamesDiv.innerHTML += '<p>' + name + '</p>';
+                });
+            } else {
+                alert('Введіть коректну кількість студентів (не менше 1).');
+            }
+        }
+
+        // Додаємо обробник події для кнопки "Ввести імена студентів"
+        document.getElementById('inputNamesButton').addEventListener('click', inputStudentNames);
+    </script>
+</body>
+</html>
