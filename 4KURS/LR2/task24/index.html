@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 24</title>
+</head>
+<body>
+    Створіть функцію groupById(arr), яка створює з масиву об’єкт із ключом id та
+елементами масиву як значеннями.
+    <h1>Функція getAverageAge</h1>
+    <hr>
+
+    <div id="output"></div>
+
+    <script>
+        function getAverageAge(users) {
+            if (users.length === 0) {
+                return 0;
+            }
+
+            var sum = 0;
+            for (var i = 0; i < users.length; i++) {
+                sum += users[i].age;
+            }
+
+            return sum / users.length;
+        }
+
+        var users = [
+            { name: "John", age: 25 },
+            { name: "Jane", age: 30 },
+            { name: "Bob", age: 20 }
+        ];
+
+        // Виведення початкових значень
+        var outputDiv = document.getElementById('output');
+        var initialParagraph = document.createElement('p');
+        initialParagraph.textContent = 'Початковий вік користувачів:';
+        outputDiv.appendChild(initialParagraph);
+
+        for (var i = 0; i < users.length; i++) {
+            var userParagraph = document.createElement('p');
+            userParagraph.textContent = users[i].name + ': ' + users[i].age;
+            outputDiv.appendChild(userParagraph);
+        }
+
+        // Обчислення середнього віку
+        var averageAge = getAverageAge(users);
+
+        // Виведення результату
+        var resultParagraph = document.createElement('p');
+        resultParagraph.textContent = 'Середній вік: ' + averageAge;
+        outputDiv.appendChild(resultParagraph);
+    </script>
+</body>
+</html>

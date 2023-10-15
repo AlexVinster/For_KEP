@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task25</title>
+</head>
+<body>
+    Напишіть функцію sumSalaries(salaries), що повертає суму всіх зарплат за
+допомогою Object.values та циклуfor..of. <br>
+Якщо об’єкт salaries порожній, тоді результат повинен бути 0.
+    <h1>Функція sumSalaries</h1>
+    <hr>
+
+    <div id="output"></div>
+
+    <script>
+        function sumSalaries(salaries) {
+            if (Object.keys(salaries).length === 0) {
+                return 0; // Об'єкт salaries порожній
+            }
+
+            let totalSalary = 0;
+            for (let salary of Object.values(salaries)) {
+                totalSalary += salary;
+            }
+
+            return totalSalary;
+        }
+
+        // Приклад використання
+        var salaries = {
+            "John": 1000,
+            "Jane": 1200,
+            "Bob": 800
+        };
+
+        // Виведення результату на сторінку
+        var outputDiv = document.getElementById('output');
+        var resultParagraph = document.createElement('p');
+        resultParagraph.textContent = 'Сума заробітних плат: ' + sumSalaries(salaries);
+        outputDiv.appendChild(resultParagraph);
+    </script>
+</body>
+</html>

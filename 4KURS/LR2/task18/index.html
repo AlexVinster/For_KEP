@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 18</title>
+</head>
+<body>
+   <strong>18. Завдання:</strong><br>
+    1. Створіть масив styles з елементами “Jazz” та “Blues”. <br>
+    2. Додайте “Rock-n-Roll” в кінець масиву. <br>
+    3. Замініть значення в середині масиву на “Classics”. Ваш код повинен шукати
+    медіанний елемент у масивах будь-якої довжини. <br>
+    4. Видаліть перший елемент масиву та покажіть його. <br>
+    5. Вставте Rap та Reggae на початок масиву.
+    <hr>
+
+    <div id="output"></div>
+
+    <script>
+        var styles = ["Jazz", "Blues"];
+        displayArray(styles);
+
+        styles.push("Rock-n-Roll");
+        displayArray(styles);
+
+        var middleIndex = Math.floor(styles.length / 2);
+        styles[middleIndex] = "Classics";
+        displayArray(styles);
+
+        var firstElement = styles.shift();
+        displayArray(styles);
+
+        styles.unshift("Rap", "Reggae");
+        displayArray(styles);
+
+        function displayArray(array) {
+            var outputDiv = document.getElementById('output');
+            var paragraph = document.createElement('p');
+            paragraph.textContent = array.join(", ");
+            outputDiv.appendChild(paragraph);
+        }
+    </script>
+</body>
+</html>

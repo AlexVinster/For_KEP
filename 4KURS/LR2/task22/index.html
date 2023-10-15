@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Функція sortByAge</title>
+</head>
+<body>
+    Напишіть функцію sortByAge(users), яка приймає масив об єктів з властивістю ʼ age
+    і сортує їх по ньому.
+    <h1>Функція sortByAge</h1>
+    <hr>
+
+    <div id="output"></div>
+
+    <script>
+        function sortByAge(users) {
+            users.sort(function (a, b) {
+                return a.age - b.age;
+            });
+        }
+
+        let ivan = { name: "Іван", age: 25 };
+        let petro = { name: "Петро", age: 30 };
+        let mariya = { name: "Марія", age: 28 };
+
+        let arr = [petro, ivan, mariya];
+
+        sortByAge(arr);
+
+        var outputDiv = document.getElementById('output');
+        for (let i = 0; i < arr.length; i++) {
+            var paragraph = document.createElement('p');
+            paragraph.textContent = "Ім'я: '" + arr[i].name + ', Вік: ' + arr[i].age;
+            outputDiv.appendChild(paragraph);
+        }
+    </script>
+</body>
+</html>
