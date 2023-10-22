@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Виведення останнього дня місяця</title>
+</head>
+<body>
+    <h1>Виведення останнього дня місяця</h1>
+    <hr>
+
+    <!-- Вибір місяця -->
+    <label for="monthSelect">Виберіть місяць: </label>
+    <select id="monthSelect">
+        <option value="0">Січень</option>
+        <option value="1">Лютий</option>
+        <option value="2">Березень</option>
+        <option value="3">Квітень</option>
+        <option value="4">Травень</option>
+        <option value="5">Червень</option>
+        <option value="6">Липень</option>
+        <option value="7">Серпень</option>
+        <option value="8">Вересень</option>
+        <option value="9">Жовтень</option>
+        <option value="10">Листопад</option>
+        <option value="11">Грудень</option>
+    </select>
+    <button onclick="getAndDisplayLastDay()">Вивести останній день</button>
+ 
+    <div id="output"></div>
+
+    <script>
+        function getLastDayOfMonth(year, month) {
+            var date = new Date(year, month + 1, 0);
+            return date.getDate();
+        }
+
+        function getAndDisplayLastDay() {
+            var year = new Date().getFullYear();
+            var monthSelect = document.getElementById('monthSelect');
+            var selectedMonth = parseInt(monthSelect.value);
+            var lastDay = getLastDayOfMonth(year, selectedMonth);
+
+            // Виведення результату на сторінку
+            var outputDiv = document.getElementById('output');
+            var resultParagraph = document.createElement('p');
+            resultParagraph.textContent = 'Останній день місяця: ' + lastDay;
+            outputDiv.innerHTML = ''; // Очищення результатів попереднього вибору
+            outputDiv.appendChild(resultParagraph);
+        }
+    </script>
+</body>
+</html>
