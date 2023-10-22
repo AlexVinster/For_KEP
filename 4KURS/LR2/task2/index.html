@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Виведення дня тижня</title>
+</head>
+<body>
+    <h1>Виведення дня тижня</h1>
+    <hr>
+
+    <div id="output"></div>
+
+    <script>
+        function getWeekDay(date) {
+            var days = ['НД', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
+            return days[date.getDay()];
+        }
+
+        var date = new Date(); // Зараз
+        var weekDay = getWeekDay(date);
+
+        // Виведення результату на сторінку
+        var outputDiv = document.getElementById('output');
+        var resultParagraph = document.createElement('p');
+        resultParagraph.textContent = 'Сьогодні: ' + weekDay;
+        outputDiv.appendChild(resultParagraph);
+    </script>
+</body>
+</html>

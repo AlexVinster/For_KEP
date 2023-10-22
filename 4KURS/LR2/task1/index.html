@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Виведення дати</title>
+</head>
+<body>
+    <h1>Виведення дати</h1>
+    <hr>
+
+    <div id="output"></div>
+
+    <script>
+        var date = new Date('2021-02-20T03:12:00');
+
+        // Отримання дати у рядковому форматі
+        var formattedDate = date.toLocaleString();
+
+        // Виведення результату на сторінку
+        var outputDiv = document.getElementById('output');
+        var resultParagraph = document.createElement('p');
+        resultParagraph.textContent = 'Дата: ' + formattedDate;
+        outputDiv.appendChild(resultParagraph);
+    </script>
+</body>
+</html>

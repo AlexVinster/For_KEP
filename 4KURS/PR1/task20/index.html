@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 20</title>
+</head>
+<body>
+    <h1>Функція filterRange</h1>
+    <hr>
+    20. Напишіть функцію filterRange(arr, a, b), яка приймає масив arr, шукає в
+ньому елементи більші-рівні a та менші-рівні b і віддає масив цих елементів.
+Функція повинна повертати новий масив і не змінювати вихідний.
+<br>
+    a = 3
+    b = 7
+    <div id="output"></div>
+
+    <script>
+        function filterRange(arr, a, b) {
+            var result = [];
+
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] >= a && arr[i] <= b) {
+                    result.push(arr[i]);
+                }
+            }
+
+            return result;
+        }
+
+        var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        var a = 3;
+        var b = 7;
+        var filteredArray = filterRange(arr, a, b);
+
+        var outputDiv = document.getElementById('output');
+        outputDiv.textContent = 'Результат: ' + filteredArray.join(', ');
+    </script>
+</body>
+</html>

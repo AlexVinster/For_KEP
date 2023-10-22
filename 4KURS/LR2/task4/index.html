@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Функція formatDate</title>
+</head>
+<body>
+    <h1>Функція formatDate</h1>
+    <hr>
+
+    <div id="output"></div>
+
+    <script>
+        function formatDate(date) {
+            var currentDate = new Date();
+            var diff = currentDate - date;
+
+            if (diff < 1000) {
+                return "прямо зараз";
+            } else if (diff < 60000) {
+                var seconds = Math.floor(diff / 1000);
+                var agoDate = new Date(currentDate - diff);
+                return agoDate.getHours() + ":" + agoDate.getMinutes() + ":" + agoDate.getSeconds();
+            } else if (diff < 3600000) {
+                var minutes = Math.floor(diff / 60000);
+                var agoDate = new Date(currentDate - diff);
+                return agoDate.getHours() + ":" + agoDate.getMinutes();
+            } else {
+                var day = String(date.getDate()).padStart(2, '0');
+                var month = String(date.getMonth() + 1).padStart(2, '0');
+                var year = String(date.getFullYear()).slice(-2);
+                var hours = String(date.getHours()).padStart(2, '0');
+                var minutes = String(date.getMinutes()).padStart(2, '0');
+
+                return day + "." + month + "." + year + " " + hours + ":" + minutes;
+            }
+        }
+
+        // Генеруємо випадкову дату
+        function getRandomDate() {
+            var start = new Date(2020, 0, 1).getTime();
+            var end = new Date().getTime();
+            return new Date(start + Math.random() * (end - start));
+        }
+
+        var date1 = new Date(); // Поточна дата
+        var date2 = new Date(date1 - 1500); // 1 секунда тому
+        var date3 = new Date(date1 - 60000); // 1 хвилина тому
+        var date4 = new Date(date1 - 3600000); // 1 година тому
+        var date5 = getRandomDate(); // Довільна дата
+
+        var outputDiv = document.getElementById('output');
+
+        var result2 = document.createElement('p');
+        result2.textContent = "1 секунда тому: " + formatDate(date2);
+        outputDiv.appendChild(result2);
+
+        var result3 = document.createElement('p');
+        result3.textContent = "1 хвилина тому: " + formatDate(date3);
+        outputDiv.appendChild(result3);
+
+        var result4 = document.createElement('p');
+        result4.textContent = "1 година тому: " + formatDate(date4);
+        outputDiv.appendChild(result4);
+
+        var result5 = document.createElement('p');
+        result5.textContent = "Довільна дата: " + formatDate(date5);
+        outputDiv.appendChild(result5);
+    </script>
+</body>
+</html>
