@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Кількість секунд до завтра</title>
+</head>
+<body>
+    <h1>Кількість секунд до завтра</h1>
+    <p id="secondsOutput"></p>
+    <button onclick="showSecondsToTomorrow()">Показати кількість секунд до завтра</button>
+
+    <script>
+        function getSecondsToTomorrow() {
+            const now = new Date();
+            const tomorrow = new Date(now);
+            tomorrow.setDate(now.getDate() + 1);
+            tomorrow.setHours(0, 0, 0, 0); // Встановлюємо завтрашній початок дня
+
+            const timeDiff = tomorrow - now;
+            return Math.floor(timeDiff / 1000);
+        }
+
+        function showSecondsToTomorrow() {
+            const seconds = getSecondsToTomorrow();
+            document.getElementById('secondsOutput').textContent = 'Кількість секунд до завтра: ' + seconds;
+        }
+    </script>
+</body>
+</html>
