@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>4</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    label {
+        display: block;
+        margin-top: 10px;
+    }
+
+    input {
+        width: 100px;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    #result {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+    }
+</style>
+<body>
+    <h1>4. Попросіть користувача ввести суму (типу ставка на результат боксерського змагання
+        тощо). Згенеруйте випадкове число в діапазоні від -5 до 5. Через 1 секунду виведіть
+        користувачу інформацію про те, що він "виграв" або "програв" з такою логікою: якщо
+        випадкове число негативне або дорівнює 0 - він "не вгадав" зі своєю ставкою . Якщо
+        число позитивне, то ви множите суму ставки на це число і виводите користувачеві, що
+        він виграв... гривень. Наприклад, користувач ввів 1000, випало число 5 – виграв 5000.</h1>
+
+    <label for="betAmount">Введіть суму ставки:</label>
+    <input type="number" id="betAmount">
+    <button onclick="startGame()">Почати гру</button>
+
+    <div id="result"></div>
+
+    <script>
+        function startGame() {
+            const betAmount = parseInt(document.getElementById("betAmount").value);
+            if (isNaN(betAmount) || betAmount <= 0) {
+                alert("Будь ласка, введіть дійсну суму ставки.");
+                return;
+            }
+
+            // Генеруємо випадкове число від -5 до 5
+            const randomValue = Math.floor(Math.random() * 11) - 5;
+
+            setTimeout(function () {
+                const resultDiv = document.getElementById("result");
+                resultDiv.textContent = "Випало число: " + randomValue;
+
+                if (randomValue <= 0) {
+                    resultDiv.textContent += "\nВи не вгадали свою ставку.";
+                } else {
+                    const winnings = betAmount * randomValue;
+                    resultDiv.textContent += "\nВи виграли " + winnings + " гривень!";
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

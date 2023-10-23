@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2.1</title>
+</head>
+<body>
+
+    <!-- Сценарій 2.1: Оновлення кожну секунду зі спливаючим вікном -->
+    <div id="scenario-2-1">
+        <p>2.1 Створіть веб-сторінку із часом, що змінюється відповідно до поточного. При
+проходженні 60 секунд після запуску «годинника» необхідно, щоб створювалося
+спливаюче вікно із попередженням «пройшла ще одна хвилина!»</p>
+        <p id="time-2-1"></p>
+    </div>
+
+    <script>
+        // Сценарій 2.1: Оновлення кожну секунду зі спливаючим вікном
+        function updateTime_2_1() {
+            const timeElement = document.getElementById("time-2-1");
+            const now = new Date();
+            const seconds = now.getSeconds();
+            timeElement.textContent = now.toLocaleTimeString();
+
+            if (seconds === 0) {
+                alert("Пройшла ще одна хвилина!");
+            }
+        }
+        setInterval(updateTime_2_1, 1000);
+    </script>
+</body>
+</html>

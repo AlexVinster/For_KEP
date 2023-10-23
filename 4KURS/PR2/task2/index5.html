@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2.5</title>
+</head>
+<body>
+    <div id="scenario-2-5">
+        <p>2.5 Створіть веб-сторінку із відображенням часу і кнопкою, що здійснює оновлення
+            часу відповідно до поточного.</p>
+        <p id="time-2-5"></p>
+        <button onclick="updateTime()">Оновити час</button>
+    </div>
+
+    <script>
+        function updateTime_2_5() {
+            const timeElement = document.getElementById("time-2-5");
+            const now = new Date();
+            timeElement.textContent = now.toLocaleTimeString();
+        }
+
+        function updateTime() {
+            updateTime_2_5();
+        }
+        updateTime_2_5();
+        </script>
+    </body>
+</html>

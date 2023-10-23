@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2.4</title>
+</head>
+<body>
+    <div id="scenario-2-4">
+        <p>2.4 Створіть веб-сторінку із часом, що змінюється кожні 5 секунд. При проходженні
+            10 секунд повинне видаватися попередження про оновлення часу на веб-сторінці.</p>
+        <p id="time-2-4"></p>
+    </div>
+    <script>
+        let elapsedTime = 0;
+        
+        function updateTime_2_4() {
+            elapsedTime += 5;
+            
+            if (elapsedTime % 10 === 0) {
+                alert("Пройшло 10 секунд.");
+            }
+
+            const timeElement = document.getElementById("time-2-4");
+            const now = new Date();
+            timeElement.textContent = now.toLocaleTimeString();
+        }
+        setInterval(updateTime_2_4, 5000);
+    </script>
+</body>
+</html>

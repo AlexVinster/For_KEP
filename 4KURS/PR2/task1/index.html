@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 1</title>
+</head>
+<body>
+    <p>1. Напишіть функцію на основі практичного прикладу годинника, яка додаватиме ”0” до
+        значення годин, хвилин або секунд, якщо поточне значення менше 10.</p>
+    <input type="text" id="clock" size="10">
+    <script>
+        function formatTime(timeValue) {
+            // Функція для додавання "0", якщо значення менше 10
+            return timeValue < 10 ? "0" + timeValue : timeValue;
+        }
+
+        function time() {
+            let currentTime = new Date();
+            let hours = formatTime(currentTime.getHours());
+            let minutes = formatTime(currentTime.getMinutes());
+            let seconds = formatTime(currentTime.getSeconds());
+
+            clock.value = hours + ":" + minutes + ":" + seconds;
+
+            setTimeout(time, 1000);
+        }
+        time();
+    </script>
+</body>
+</html>
