@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <title>Task 2</title>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icons8-done-240.png" type="image/x-icon">
+</head>
+<body>
+    <h3>2. Написати код, який перевіряє знання таблиці множення. Веб-сторінка містить
+        текстовий напис для показу загального рахунку, кнопку «наступне завдання», текстовий
+        напис для показу завдання, текстове поле для вводу відповіді, кнопку «перевірити» та
+        текстовий напис для виводу результатів перевірки.
+        Завдання повинні генеруватися випадковим чином.
+    </h3>
+
+    <p id="score">Загальний рахунок: 0% (0 правильних відповідей з 0)</p>
+    <button id="nextTask">наступне завдання</button>
+    <p></p>
+    <div class="task-container">
+        <p id="task">2 x 1</p>
+        <input type="text" id="answer" placeholder="Введіть відповідь">
+        <button id="check">перевірити</button>
+    </div>
+    <p id="result"></p>
+
+    <script>
+        const scoreDisplay = document.getElementById("score");
+        const nextTaskButton = document.getElementById("nextTask");
+        const taskDisplay = document.getElementById("task");
+        const answerInput = document.getElementById("answer");
+        const checkButton = document.getElementById("check");
+        const resultDisplay = document.getElementById("result");
+
+        let totalQuestions = 0;
+        let correctAnswers = 0;
+
+        function updateScore() {
+            const percentage = totalQuestions === 0 ? "0%" : ((correctAnswers / totalQuestions * 100).toFixed(2) + "%");
+            scoreDisplay.textContent = `Загальний рахунок: ${percentage} (${correctAnswers} правильних відповідей з ${totalQuestions})`;
+        }
+
+        function generateRandomTask() {
+            const factor1 = Math.floor(Math.random() * 10) + 1;
+            const factor2 = Math.floor(Math.random() * 10) + 1;
+            correctAnswer = factor1 * factor2;
+            taskDisplay.textContent = `${factor1} x ${factor2}`;
+            nextTaskButton.disabled = false;
+        }
+
+        function checkAnswer() {
+            totalQuestions++;
+            const userAnswer = parseInt(answerInput.value);
+            if (userAnswer === correctAnswer) {
+                correctAnswers++;
+                resultDisplay.textContent = "Правильно!";
+            } else {
+                resultDisplay.textContent = `Помилка, правильна відповідь: ${correctAnswer}`;
+            }
+            updateScore();
+        }
+
+        nextTaskButton.addEventListener('click', () => {
+            generateRandomTask();
+            resultDisplay.textContent = "";
+            answerInput.value = "";
+        });
+
+        checkButton.addEventListener('click', checkAnswer);
+
+        generateRandomTask();
+        updateScore();
+    </script>
+</body>
+</html>

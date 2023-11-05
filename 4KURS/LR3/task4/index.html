@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перелистування зображень</title>
+    <style>
+        #image-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #image {
+            max-width: 100%;
+            max-height: 400px;
+        }
+
+        #image-info {
+            text-align: center;
+        }
+
+        #navigation {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Перегляд зображень</h1>
+
+    <div id="image-container">
+        <button id="prev" onclick="showImage(-1)">Назад</button>
+        <img id="image" src="image1.jpg" alt="Зображення 1" title="Заголовок 1" />
+        <button id="next" onclick="showImage(1)">Вперед</button>
+    </div>
+
+    <p id="image-info">Зображення <span id="image-number">1</span> з <span id="total-images">3</span></p>
+
+    <script>
+        const imagePaths = ["image1.jpg", "image2.jpg", "image3.jpg"];
+        const imageTitles = ["Заголовок 1", "Заголовок 2", "Заголовок 3"];
+        const imageDescriptions = ["Опис 1", "Опис 2", "Опис 3"];
+
+        let currentImageIndex = 0;
+        const imageElement = document.getElementById("image");
+        const imageNumberElement = document.getElementById("image-number");
+        const totalImagesElement = document.getElementById("total-images");
+        const prevButton = document.getElementById("prev");
+        const nextButton = document.getElementById("next");
+
+        function showImage(offset) {
+            currentImageIndex += offset;
+            if (currentImageIndex < 0) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex >= imagePaths.length) {
+                currentImageIndex = imagePaths.length - 1;
+            }
+
+            const imagePath = imagePaths[currentImageIndex];
+            const imageTitle = imageTitles[currentImageIndex];
+            const imageDescription = imageDescriptions[currentImageIndex];
+
+            imageElement.src = imagePath;
+            imageElement.alt = `Зображення ${currentImageIndex + 1}`;
+            imageElement.title = imageTitle;
+            imageNumberElement.textContent = currentImageIndex + 1;
+            totalImagesElement.textContent = imagePaths.length;
+
+            prevButton.disabled = currentImageIndex === 0;
+            nextButton.disabled = currentImageIndex === imagePaths.length - 1;
+        }
+
+        showImage(0);
+    </script>
+</body>
+</html>

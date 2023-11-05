@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <title>Task1</title>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="../LR1/css/style.css">
+    <link rel="shortcut icon" href="../LR1/media/icons8-done-240.png" type="image/x-icon">
+</head>
+<body>
+    <h3>1. Створити код, який за величиною температури за шкалою Фаренгейта обчислює
+        величину температури в градусах Цельсія і навпаки. Веб-сторінка має два текстових поля:
+    </h3>
+    
+    <ul>
+        <li>температура за Фаренгейтом</li>
+        <li>температура за Цельсієм</li>
+    </ul> 
+    <h3>які містять відповідні числа.</h3> 
+
+    <div>
+        <label for="fahrenheitInput">Температура за Фаренгейтом:</label>
+        <input type="text" id="fahrenheitInput" oninput="convertTemperature()">
+    </div>
+    <p></p>
+    <div>
+        <label for="celsiusInput">Температура за Цельсієм:</label>
+        <input type="text" id="celsiusInput" oninput="convertTemperature()">
+    </div>
+
+    <script>
+        function convertTemperature() {
+            var fahrenheitInput = parseFloat(document.getElementById('fahrenheitInput').value);
+            var celsiusInput = parseFloat(document.getElementById('celsiusInput').value);
+            
+            if (!isNaN(fahrenheitInput)) {
+                var celsius = (5/9) * (fahrenheitInput - 32);
+                document.getElementById('celsiusInput').value = celsius;
+            }
+            
+            if (!isNaN(celsiusInput)) {
+                var fahrenheit = (celsiusInput * 9/5) + 32;
+                document.getElementById('fahrenheitInput').value = fahrenheit;
+            }
+        }
+    </script>
+
+</body>
+</html>
