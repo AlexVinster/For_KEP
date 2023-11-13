@@ -1,0 +1,128 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #carousel {
+            transition-duration: 0.2s;
+            width: 9999px;
+            list-style: none;
+            overflow: hidden;
+            padding: 0;
+            position: relative;
+        }
+
+        li {
+            display: inline-block;
+        }
+
+        img {
+            width: 130px;
+            display: block;
+        }
+
+        .wrapper {
+            width: 670px;
+            white-space: nowrap;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+
+        }
+
+        .fa {
+            cursor: pointer;
+            font-size: 40px !important;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .container {
+            background-color: rgb(125, 182, 122);
+            padding: 40px;
+            width: 800px;
+            margin: auto;
+        }
+    </style>
+    <style>
+        [_nghost-ng-c4214649903] {
+            font-family: Open Sans, sans-serif;
+            color: #121212
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <ul id="carousel">
+                <li>
+                    <img src="racoon.png" alt="">
+                </li>
+                <li>
+                    <img src="panda.png" alt="">
+                </li>
+                <li>
+                    <img src="dog.png" alt="">
+                </li>
+                <li>
+                    <img src="panda.png" alt="">
+                </li>
+                <li>
+                    <img src="racoon.png" alt="">
+                </li>
+                <li>
+                    <img src="panda.png" alt="">
+                </li>
+                <li>
+                    <img src="racoon.png" alt="">
+                </li>
+                <li>
+                    <img src="dog.png" alt="">
+                </li>
+                <li>
+                    <img src="racoon.png" alt="">
+                </li>
+                <li>
+                    <img src="dog.png" alt="">
+                </li>
+            </ul>
+        </div>
+
+        <div class="buttons">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </div>
+    </div>
+    <script>
+        const carousel = document.querySelector('#carousel');
+        const leftBtn = document.querySelector('.fa-arrow-left');
+        const rightBtn = document.querySelector('.fa-arrow-right');
+        const lastImage = carousel.lastElementChild;
+        const lastImageEnd = lastImage.offsetLeft + lastImage.offsetWidth;
+        const carouselEnd = carousel.offsetWidth - carousel.parentElement.offsetWidth;
+        let position = 0;
+        let transition = 134;
+        rightBtn.addEventListener('click', () => {
+            if (lastImageEnd + position > carousel.parentElement.offsetWidth) {
+                position -= transition;
+                carousel.style.transform = `translateX(${position}px)`;
+            }
+        });
+        leftBtn.addEventListener('click', () => {
+            position += transition;
+            position = Math.min(position, 0);
+            carousel.style.transform = `translateX(${position}px)`;
+        });
+    </script>
+
+
+</body>
+
+</html>

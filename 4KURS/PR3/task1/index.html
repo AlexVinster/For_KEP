@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 1</title>
+    <style>
+        .hide-btn {
+            font-size: 20px;
+            width: 30px;
+            height: 30px;
+            color: rgba(173, 0, 0, 0.84);
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            line-height: 30px;
+        }
+
+        .messages {
+            max-width: 550px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .message {
+            background-color: rgba(155, 183, 112, 0.376);
+            border-top: 2px solid #278a2e;
+            padding: 10px;
+            margin: 0;
+        }
+
+        h4 {
+            margin: 0;
+            color: #121212;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="messages">
+        <div class="message">
+            <h4>Android</h4>
+            <p>Android - (вимов. Андроїд) операційна система і платформа для мобільних телефонів та планшетних
+                комп'ютерів, створена компанією Google на базі ядра Linux.
+                Підтримується альянсом Open Handset Alliance (OHA).
+            </p>
+            <div class="hide-btn">[x]</div>
+        </div>
+        <div class="message">
+            <h4>Mac OS</h4>
+            <p>Mac OS, від Macintosh Operation System (Мак ОС, Операційна Система Макінтош), є першою комерційною
+                графічною операційною системою, створеною компанією Apple Computer. Перша версія Мас OS вийшла
+                у 1984 році разом з першим комп'ютером Macintosh.
+            </p>
+            <div class="hide-btn">[x]</div>
+        </div>
+        <div class="message">
+            <h4>Windows Phone</h4>
+            <p>Windows Phone (кодова назва "Photon") - велике оновлення Windows Mobile, що вийшло 11 жовтня 2010 року.
+                Дана
+                система є повністю новим інтерфейсом і вперше - з інтеграцією сервісів Microsoft Xbox Live і Zune.
+                Презентація системи відбувалась в рамках заходу Mobile Word Congress, що проходить у Барселоні.
+            </p>
+            <div class="hide-btn">[x]</div>
+        </div>
+    </div>
+
+    <script>
+        const hideButtons = document.querySelectorAll('.hide-btn');
+
+        hideButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const message = button.parentNode;
+                message.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 3</title>
+    <style>
+        #field {
+            width: 350px;
+            height: 250px;
+            border: 10px solid #000;
+            background-color: lime;
+            position: relative;
+            background-image: radial-gradient(black 5%, transparent 0);
+            background-size: 30px 30px;
+        }
+
+        #ball {
+            position: absolute;
+            transition: transform 0.4s;
+        }
+    </style>
+    <style>
+        [_nghost-ng-c4214649903] {
+            font-family: Open Sans, sans-serif;
+            color: #121212
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="field">
+        <img id="ball" src="ball.png" width="50" height="50" alt="icon"
+            style="transform: translate(167px, 131px);">
+    </div>
+
+    <script>
+        const field = document.getElementById('field');
+        const ball = document.getElementById('ball');
+
+        field.addEventListener('click', (event) => {
+            const ballWidth = ball.clientWidth;
+            const ballHeight = ball.clientHeight;
+            const fieldRect = field.getBoundingClientRect();
+            const clickX = event.clientX;
+            const clickY = event.clientY;
+            let ballX = clickX - fieldRect.left - ballWidth / 2;
+            let ballY = clickY - fieldRect.top - ballHeight / 2;
+
+            if (ballX < 0) {
+                ballX = 0;
+            } else if (ballX > field.clientWidth - ballWidth) {
+                ballX = field.clientWidth - ballWidth;
+            }
+
+            if (ballY < 0) {
+                ballY = 0;
+            } else if (ballY > field.clientHeight - ballHeight) {
+                ballY = field.clientHeight - ballHeight;
+            }
+
+            ball.style.transform = `translate(${ballX}px, ${ballY}px)`;
+        });
+    </script>
+
+
+
+</body>
+
+</html>
