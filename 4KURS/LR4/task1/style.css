@@ -30,8 +30,6 @@
     display: block;
 }
 
-/* border */
-
 #block {
     width: 100px;
     height: 100px;
@@ -45,19 +43,13 @@ textarea {
     margin-top: 10px;
 }
 
-/* text */
-
-#marg, #text2{
-    font-size: 36px;
+#marg{
+    font-size: 30px;
     padding: 20px;
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  #shadowControls {
-    margin-top: 20px;
-  }
+    border-radius: 18px;
+ //   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
   input {
     margin-right: 10px;
