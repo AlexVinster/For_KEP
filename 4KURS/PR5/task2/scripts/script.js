@@ -11,22 +11,17 @@ document.addEventListener("DOMContentLoaded", function () {
     let productPrice;
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-    function removeFromCart(index) {
-        cartItems.splice(index, 1);
-        updateCart();
-        saveCartToLocalStorage();
-    }
-
-    function saveCartToLocalStorage() {
-        localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    }
-
     function updateCartItemCount() {
-        const cartItemCountElement = document.getElementById("cartItemCount");
         const uniqueItemCount = getUniqueItemCount();
         cartItemCountElement.innerText = uniqueItemCount;
+
+        if (uniqueItemCount > 0) {
+            cartItemCountElement.style.display = "block";
+        } else {
+            cartItemCountElement.style.display = "none";
+        }
     }
-    
+
     function getUniqueItemCount() {
         const uniqueItems = {};
         cartItems.forEach(function (item) {
@@ -135,6 +130,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     cartIcon.addEventListener("click", checkAndProceedToCart);
-    updateCart();
     updateCartItemCount();
 });
