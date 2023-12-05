@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+body {
+    text-transform: uppercase;
+    /* text-align: center; */
+    font-family: 'Roboto', sans-serif;
+}
+
+.wrap, .panel, hr {
+    border: 1px solid rgba(228, 228, 228, 255);
+    text-align: center;
+}
+
+.wrap {
+    width: 1200px;
+    height: 500px;
+    flex-direction: row;
+    display: flex;
+    margin: auto;
+    position: relative;
+    margin-top: 75px;
+}
+
+.panel {
+    width: 25%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    align-items: stretch;
+}
+
+.categor {
+    height: 90px;
+    line-height: 90px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.categor a {
+    color: rgba(133, 139, 146, 255);
+    font-size: 20px;
+}
+
+hr {
+    width: 90%;
+}
+
+.pic, .prod {
+    margin: 25px 0;
+}
+
+.costs {
+    height: 50px;
+    font-size: 18px;
+}
+
+.prod a {
+    font-size: 19px;
+}
+
+.prod a, .prod, .prod a:hover {
+    color: rgba(6, 157, 226, 255);
+}
+
+img {
+    height: 150px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    font-size: 14px;
+}
+
+.btn {
+    width: 180px;
+    height: 50px;
+    background-color: rgba(240, 229, 30);
+    margin: auto;
+    color: black;
+}
+
+.btn:hover {
+    background-color: rgb(189, 181, 35);
+}
+
+.btn:active {
+    width: 170px;
+    height: 45px;
+}
+
+.soon {
+    background-color: rgba(204, 51, 153, 255);
+    color: white;
+    pointer-events: none;
+}
+
+.soon a, .note {
+    color: white;
+}
+
+.swipe {
+    position: absolute;
+    top: 93px;
+    font-size: 26px;
+    line-height: 30px;
+    width: 30px;
+    color: rgba(216, 216, 216, 255);
+    border: 2px solid rgba(216, 216, 216, 255);
+    border-radius: 100%;
+    background-color: white;
+    z-index: 1;
+}
+
+.rightsw {
+    right: -15px;
+}
+
+.leftsw {
+    left: -15px;
+}
+
+.note {
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    font-size: 13px;
+    border-radius: 100%;
+    right: 5px;
+    top: -30px;
+}
+
+.note, .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hit {
+    background-color: rgb(0, 123, 255);
+}
+
+.new {
+    background-color: rgb(82, 135, 3);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.prod {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-overflow: ellipsis;
+}
+
+.prod a:hover {
+    text-decoration: underline;
+}
+
+/*КОРЗИНА ТОВАРІВ */
+.cart {
+    width: 48px;
+    height: 48px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.cart:hover {
+    width: calc(48px + 1%);
+    height: calc(48px + 1%);
+    cursor: pointer;
+}
+
+/* Стилі для модального вікна */
+#emptyCartModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Стилі для кнопки закриття модального вікна */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #333;
+    font-size: 20px;
+}
+
+/* Додаємо блюр до основного контенту при активному модальному вікні */
+.blur {
+    filter: blur(8px); /* Задаємо рівень блюру */
+    pointer-events: none; /* Забороняє взаємодію з фоновим елементом (наприклад, клік) */
+}
+
+#addedToCartModal, #addingToCartModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    max-width: 800px;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#number {
+    width: 3em;
+}
+
+#productNameAdd, #productNameAdded {
+    color: red;
+    font-weight: bold;
+}
+
+#productPriceAdd, #productPriceAdded {
+    color: green;
+    font-weight: bold;
+}
+
+#productPriceAdded {
+    color: rgb(7, 189, 7);;
+}
+
+#totalPriceAdd {
+    color: rgb(7, 189, 7);
+    font-weight: bold;
+}
+
+.btnAdd, .btnToCart, .btnContinueShopping {
+    width: 150px;
+    height: 30px;
+    background-color: rgba(240, 229, 30);
+    margin: auto;
+    color: black;
+}
+
+.btnAdd:hover, .btnToCart:hover, .btnContinueShopping:hover {
+    background-color: rgb(189, 181, 35);
+    cursor: pointer;
+}
+
+input {
+    text-align: center;
+}

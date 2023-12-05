@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Task 2</title>
+    <link rel="stylesheet" href="css/style.css" media="screen">
+</head>
+
+<body>
+    <img class="cart" src="https://img.icons8.com/sf-regular-filled/48/shopping-cart.png" alt="shopping-cart" />
+    <div id="wrapper">
+        <div class="wrap">
+            <div class="swipe leftsw"> &#60;</div>
+            <div class="swipe rightsw">&#62;</div>
+            <div class="panel" data-product='{"name": "Samsung Odyssey Ark S55BG970NI", "price": "Ціна товару"}'>
+                <div class="note new">
+                    <span>новинка</span>
+                </div>
+                <div class="categor">
+                    <a
+                        href="https://rozetka.com.ua/search/?preset=game&section_id=80089&text=%D0%BC%D0%BE%D0%BD%D1%96%D1%82%D0%BE%D1%80%D0%B8">
+                        Геймерські
+                    </a>
+                </div>
+                <hr>
+                <div class="pic">
+                    <a href="https://hard.rozetka.com.ua/samsung-ls55bg970nixci/p359936931/">
+                        <img src="media/odyssey.jpg" alt="img">
+                    </a>
+                </div>
+                <div class="prod bold">
+                    <a href="https://hard.rozetka.com.ua/samsung-ls55bg970nixci/p359936931/7"
+                        title="Samsung Odyssey Ark S55BG970NI">
+                        Samsung Odyssey Ark S55BG970NI
+                    </a>
+                </div>
+                <div class="costs bold">
+                    <span class="old-price"></span>
+                    <span class="price"></span>
+                </div>
+                <div>
+                    <a class="btn soon bold" href="#">незабаром у продажі</a>
+                </div>
+            </div>
+            <div class="panel" data-product='{"name": "BenQ SW321C", "price": "87 799 ₴"}'>
+                <div class="categor">
+                    <a
+                        href="https://rozetka.com.ua/search/?preset=dlya-biznesa&section_id=80089&text=%D0%BC%D0%BE%D0%BD%D1%96%D1%82%D0%BE%D1%80%D0%B8">
+                        Для бізнесу
+                    </a>
+                </div>
+                <hr>
+                <div class="pic">
+                    <a href="https://hard.rozetka.com.ua/benq_9h_lj1lb_qbe/p267581481/">
+                        <img src="media/BenQ.jpg" alt="img">
+                    </a>
+                </div>
+                <div class="prod bold">
+                    <a href="https://hard.rozetka.com.ua/benq_9h_lj1lb_qbe/p267581481/" title="BenQ SW321C">
+                        BenQ SW321C
+                    </a>
+                </div>
+                <div class="costs bold">
+                    <span class="old-price">95 999 ₴</span>
+                    <span class="price">87 799 ₴</span>
+                </div>
+                <div>
+                    <a class="btn avl bold addToCartBtn" href="#">у корзину</a>
+                </div>
+            </div>
+            <div class="panel" data-product='{"name": "Dell UltraSharp U3821DW", "price": "52 061 ₴"}'>
+                <div class="note hit">
+                    <span>хіт продажів</span>
+                </div>
+                <div class="categor">
+                    <a
+                        href="https://rozetka.com.ua/search/?preset=dlia-raboty-s-cvetom&section_id=80089&text=%D0%BC%D0%BE%D0%BD%D1%96%D1%82%D0%BE%D1%80%D0%B8">
+                        Для роботи з кольором
+                    </a>
+                </div>
+                <hr>
+                <div class="pic">
+                    <a href="https://hard.rozetka.com.ua/374356431/p374356431/">
+                        <img src="media/dell.jpg" alt="img">
+                    </a>
+                </div>
+                <div class="prod bold">
+                    <a href="https://hard.rozetka.com.ua/374356431/p374356431/" title="Dell UltraSharp U3821DW">
+                        Dell UltraSharp U3821DW
+                    </a>
+                </div>
+                <div class="costs bold">
+                    <span class="old-price">55 300 ₴</span>
+                    <span class="price">52 061 ₴</span>
+                </div>
+                <div>
+                    <a class="btn avl bold addToCartBtn" href="#">у корзину</a>
+                </div>
+            </div>
+            <div class="panel" data-product='{"name": "Asus ZenScreen MB16AHP", "price": "11 999 ₴"}'>
+                <div class="note hit">
+                    <span>хіт продажів</span>
+                </div>
+                <div class="categor">
+                    <a
+                        href="https://rozetka.com.ua/search/?preset=portativnye&section_id=80089&text=%D0%BC%D0%BE%D0%BD%D1%96%D1%82%D0%BE%D1%80%D0%B8">
+                        портативні
+                    </a>
+                </div>
+                <hr>
+                <div class="pic">
+                    <a href="https://hard.rozetka.com.ua/asus_90lm04t0_b01170/p251305341/">
+                        <img src="media/asus.jpg" alt="img">
+                    </a>
+                </div>
+                <div class="prod bold">
+                    <a href="https://hard.rozetka.com.ua/asus_90lm04t0_b01170/p251305341/"
+                        title="Asus ZenScreen MB16AHP">
+                        Asus ZenScreen MB16AHP
+                    </a>
+                </div>
+                <div class="costs bold">
+                    <span class="old-price"></span>
+                    <span class="price">11 999 ₴</span>
+                </div>
+                <div>
+                    <a class="btn avl bold addToCartBtn" href="#">у корзину</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="addedToCartModal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p>Товар <span id="productNameAdded"></span> додано до корзини за <span id="productPriceAdded"></span> ₴ за
+            <span id="productQuantityAdded"></span> шт.</p>
+        <button class="btnToCart">Перейти у корзину</button>
+        <button class="btnContinueShopping">Продовжити покупки</button>
+    </div>
+
+    <div class="modal" id="emptyCartModal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p>Корзина пуста</p>
+    </div>
+
+    <div class="modal" id="addingToCartModal">
+        <span class="close" id="addingToCartCloseBtn" onclick="closeModal()">&times;</span>
+        <p>Додати до кошика: </p>
+        <span id="productNameAdd"></span> Ціна за шт. <span id="productPriceAdd"></span> ₴</p> у кількості:
+        <input type="number" min="1" max="50" id="productQuantityAdd">
+        <p>Загальна вартість: <span id="totalPriceAdd"></span> ₴</p>
+        <button id="addToCartBtn" class="btnAdd addToCartBtn">Додати до корзини</button>
+    </div>
+
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>
+
