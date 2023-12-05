@@ -168,13 +168,10 @@ img {
     width: 48px;
     height: 48px;
     position: fixed;
-    top: 10px;
+    top: 5px;
     right: 10px;
-}
-
-.cart:hover {
-    width: calc(48px + 1%);
-    height: calc(48px + 1%);
+    display: flex;
+    align-items: center;
     cursor: pointer;
 }
 
@@ -265,4 +262,18 @@ img {
 
 input {
     text-align: center;
+}
+
+
+#cartItemCount {
+    width: 25px;
+    height: 25px;
+    background-color: rgb(3, 128, 185);
+    font-size: 18px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 5px;
+    right: 35px;
 }
