@@ -1,7 +1,7 @@
 const header = document.querySelector('header')
 const section = document.querySelector('section')
 
-const requestURL = 'https://github.com/AlexVinster/For_KEP/4KURS/PR6/json/index.json';
+const requestURL = 'https://alexvinster.github.io/For_KEP/4KURS/PR6/json/index.json';
 
 const request = new XMLHttpRequest();
 request.open('GET', requestURL);
