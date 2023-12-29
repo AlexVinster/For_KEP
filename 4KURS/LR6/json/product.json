@@ -1,33 +1,33 @@
 [
     {
       "name": "Samsung Odyssey Ark S55BG970NI",
-      "price": 1000,
+      "price": 100000,
       "status": "Новинка",
-      "discount": 10,
+      "category": "Ігрові",
       "availability": true,
       "image": "media/odyssey.jpg"
     },
     {
       "name": "BenQ SW321C",
-      "price": 1200,
+      "price": 35500,
       "status": "Хіт продажів",
-      "discount": 5,
+      "category": "Для роботи з кольором",
       "availability": false,
       "image": "media/BenQ.jpg"
     },
     {
       "name": "Dell UltraSharp U3821DW",
-      "price": 800,
+      "price": 80450,
       "status": "Хіт продажів",
-      "discount": 15,
+      "category": "Для роботи з текстом",
       "availability": true,
       "image": "media/dell.jpg"
     },
     {
       "name": "Asus ZenScreen MB16AHP",
-      "price": 500,
+      "price": 50000,
+      "category": "Сенсорні",
       "status": "",
-      "discount": 0,
       "availability": true,
       "image": "media/asus.jpg"
     }
