@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Task 2</title>
+    <link rel="stylesheet" href="css/style.css" media="screen">
+</head>
+
+    <img class="cart" src="https://img.icons8.com/sf-regular-filled/48/shopping-cart.png" alt="shopping-cart" />
+    <span id="cartItemCount">0</span>
+    <div id="wrapper">
+        <div class="wrap" id="productCarousel">
+            <div class="wrap">
+                <div class="swipe leftsw"> &#60;</div>
+                <div class="swipe rightsw">&#62;</div>
+            <!-- Product panels will be dynamically added here -->
+        </div>
+    </div>
+
+    <div class="modal" id="addedToCartModal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p>Товар <span id="productNameAdded"></span> додано до корзини за <span id="productPriceAdded"></span> ₴ за
+            <span id="productQuantityAdded"></span> шт.</p>
+        <button class="btnToCart">Перейти у корзину</button>
+        <button class="btnContinueShopping">Продовжити покупки</button>
+    </div>
+
+    <div class="modal" id="emptyCartModal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p>Корзина пуста</p>
+    </div>
+
+    <div class="modal" id="addingToCartModal">
+        <span class="close" id="addingToCartCloseBtn" onclick="closeModal()">&times;</span>
+        <p>Додати до кошика: </p>
+        <span id="productNameAdd"></span> Ціна за шт. <span id="productPriceAdd"></span> ₴</p> у кількості:
+        <input type="number" min="1" max="50" id="productQuantityAdd">
+        <p>Загальна вартість: <span id="totalPriceAdd"></span> ₴</p>
+        <button id="addToCartBtn" class="btnAdd addToCartBtn">Додати до корзини</button>
+    </div>
+
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>
