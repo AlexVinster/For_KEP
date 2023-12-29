@@ -1,192 +1,150 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const shoppingCartIcon = document.getElementById("shoppingCart");
-    const cartItemCount = document.getElementById("cartItemCount");
-    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-    const addedToCartModal = document.getElementById("addedToCartModal");
-    const emptyCartModal = document.getElementById("emptyCartModal");
-    const addingToCartModal = document.getElementById("addingToCartModal");
-    let productLink, productName, productPrice;
-    let products = [];
-    let currentProductIndex = 0;
-    const panelsPerPage = 4;
+const products = document.querySelector('#products')
+const productsAxios = document.querySelector('#productsAxios')
 
-    fetch("https://alexvinster.github.io/For_KEP/4KURS/LR6/json/product.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Network response was not ok: ${response.status}`);
+const requestURL = 'https://alexvinster.github.io/For_KEP/4KURS/LR6/json/product.json';
+
+const request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+
+request.send();
+
+request.onload = (e) => {
+    const productList = request.response;
+    generateProducts(productList, products);
+    cartFunc(products);
+}
+
+axios.get(requestURL).then(response=>{
+    const productList = response.data;
+    generateProducts(productList, productsAxios);
+    cartFunc(productsAxios);
+})
+
+function generateProducts(productList, wrapper){
+    productList.products.forEach(
+        (product) => {
+            const panel = document.createElement('div');
+            panel.classList.add('panel','swiper-slide'); 
+
+            if (product.note !== null){
+                const note = document.createElement('div');
+                note.classList.add('note', product.note);
+                const noteSpan = document.createElement('span');
+                if (product.note == "new")
+                    noteSpan.textContent = 'новинка';
+                else if(product.note == "hit")
+                    noteSpan.textContent = 'хіт продажів';
+                note.append(noteSpan);
+                panel.append(note);
             }
-            return response.json();
-        })
-        .then(data => {
-            products = data;
-            displayProducts(products);
-        })
-        .catch(error => {
-            console.error("Fetch error:", error);
-        });
+            
+            const categoryBlock = document.createElement('div');
+            categoryBlock.classList.add('categor');
+            const category = document.createElement('a');
+            category.textContent = product.category;
+            categoryBlock.append(category);
+            panel.append(categoryBlock);
 
-    function displayProducts(products) {
-        const productContainer = document.getElementById("productCarousel");
-        productContainer.innerHTML = "";
+            const line = document.createElement('hr');
+            panel.append(line);
 
-        products.forEach(function (product, index) {
-            const panel = document.createElement("div");
-            panel.className = "panel";
+            const pictureBlock = document.createElement('div');
+            pictureBlock.classList.add('pic');
+            const pictureLink = document.createElement('a');
+            pictureLink.href = product.link;
+            const pictureImg = document.createElement('img');
+            pictureImg.src = product.image;
+            pictureImg.alt = 'img';
+            
+            pictureLink.append(pictureImg);
+            pictureBlock.append(pictureLink);
+            panel.append(pictureBlock);
 
-            const isNew = product.status === 'Новинка' ? '<span class="note new">новинка</span>' : '';
-            const isHit = product.status === 'Хіт продажів' ? '<span class="note hit">хіт продажів</span>' : '';
+            const productName = document.createElement('div');
+            productName.classList.add('prod', 'bold');
+            const productLink = document.createElement('a');
+            productLink.href = product.link;
+            productLink.textContent = product.name;
+            productLink.title = product.name;
+            productName.append(productLink);
+            panel.append(productName);
 
-            const category = `<div class="categor"><a href="${product.link}">${product.category}</a></div>`;
+            const priceBlock = document.createElement('div');
+            priceBlock.classList.add('costs','bold');
+            const oldPrice = document.createElement('span');
+            oldPrice.classList.add('old-price')
+            if (product.oldPrice !== null){
+                oldPrice.textContent = product.oldPrice + ' грн' 
+            }
+            priceBlock.append(oldPrice, "\u00A0");
 
-            const picture = `<div class="picture"><a href="${product.link}"><img src="${product.image}" alt="${product.name}"></a></div>`;
+            const price = document.createElement('span');
+            price.classList.add('price');
+            if(product.price !== null){
+                price.textContent = product.price + ' грн';
+            }
+            priceBlock.append(price);
+            panel.append(priceBlock);
 
-            const productName = `<div class="prod ${product.bold ? 'bold' : ''}"><a href="${product.link}" title="${product.name}">${product.name}</a></div>`;
-
-            const costs = `<div class="costs ${product.bold ? 'bold' : ''}">
-                <span class="price">${product.price} грн</span>
-            </div>`;
-
-            const availability = `<div>
-                <a class="btn ${product.availability ? 'avl' : 'soon'} ${product.bold ? 'bold' : ''}" href="#" onclick="openQuantityModal('${product.link}', '${product.name}', '${product.price}')">
-                    ${product.availability ? 'у корзину' : 'незабаром у продажі'}
-                </a>
-            </div>`;
-
-            panel.innerHTML = `${isNew}${isHit}${category}<hr>${picture}${productName}${costs}${availability}`;
-
-            productContainer.appendChild(panel);
-        });
-
-        showCurrentProduct();
-    }
-
-    function showCurrentProduct() {
-        const panels = document.querySelectorAll(".panel");
-        panels.forEach(function (panel, index) {
-            const isVisible = index >= currentProductIndex && index < currentProductIndex + panelsPerPage;
-            panel.style.display = isVisible ? "block" : "none";
-        });
-    }
-
-    window.prevProduct = function () {
-        if (currentProductIndex > 0) {
-            currentProductIndex--;
+            const buyBlock = document.createElement('div');
+            const buyBtn = document.createElement('a');
+            buyBtn.classList.add('btn', 'bold');
+            if(product.available === true){
+                buyBtn.classList.add('avl');
+                buyBtn.textContent = 'У корзину';
+                buyBtn.href = '#';
+            }
+            else{
+                buyBtn.classList.add('soon');
+                buyBtn.textContent = 'незабаром у продажі';
+            }
+            buyBlock.append(buyBtn);
+            panel.append(buyBlock);
+            wrapper.append(panel);
         }
-        showCurrentProduct();
-    };
+    ); 
+}
 
-    window.nextProduct = function () {
-        const totalPages = Math.ceil(products.length / panelsPerPage);
-        const lastPageIndex = totalPages - 1;
 
-        if (currentProductIndex < lastPageIndex * panelsPerPage) {
-            currentProductIndex++;
-        } else {
-            currentProductIndex = 0;
-        }
+// CART
+ function cartFunc(wrapper) {
+    var shoppingCartIcon = document.getElementById("shoppingCart");
+    var cartItemCount = document.getElementById("cartItemCount");
 
-        showCurrentProduct();
-    };
+    var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-    window.openQuantityModal = function (link, name, price) {
-        productLink = link;
-        productName = name;
-        productPrice = price;
-        const quantityInput = document.getElementById("quantityInput");
-        if (addingToCartModal && quantityInput) {
-            addingToCartModal.style.display = "flex";
-            quantityInput.value = 1;
-            updateAddingToCartModal();
-        } else {
-            console.error("Adding to Cart modal or input not found.");
-        }
-    };
-
-    function updateAddingToCartModal() {
-        const productNameAdd = document.getElementById("productNameAdd");
-        const productPriceAdd = document.getElementById("productPriceAdd");
-        const totalPriceAdd = document.getElementById("totalPriceAdd");
-
-        if (productNameAdd && productPriceAdd && totalPriceAdd) {
-            productNameAdd.innerText = productName;
-            productPriceAdd.innerText = productPrice;
-            totalPriceAdd.innerText = productPrice;
-        } else {
-            console.error("Elements in Adding to Cart modal not found.");
-        }
-    }
-
-    window.closeQuantityModal = function () {
-        const addingToCartModal = document.getElementById("addingToCartModal");
-        if (addingToCartModal) {
-            addingToCartModal.style.display = "none";
-        } else {
-            console.error("Adding to Cart modal not found.");
-        }
-    };
+    updateCartItemCount();
 
     shoppingCartIcon.addEventListener("click", function () {
         if (cartItems.length === 0) {
-            openCartModal();
+            alert("Корзина пуста");
         } else {
             window.location.href = "cart/index.html";
         }
     });
 
-    function openCartModal() {
-        if (cartItems.length === 0) {
-            emptyCartModal.style.display = "flex";
-        } else {
-            addedToCartModal.style.display = "flex";
-            const modalContent = `
-                <div>
-                    Товар додано
-                    <div class="buttons">
-                        <button onclick="goToCart()">Перейти у корзину</button>
-                        <button onclick="continueShopping()">Повернутись до покупок</button>
-                    </div>
-                </div>`;
-            addedToCartModal.innerHTML = modalContent;
-        }
-    }
+    wrapper.querySelectorAll(".avl").forEach(function (button) {
+        button.addEventListener("click", function () {
+            var productName = button.parentElement.parentElement.querySelector('.prod a').innerText;
+            var productLink = button.parentElement.parentElement.querySelector('.prod a').href;
+            var productPrice = getPrice(button.parentElement.parentElement.querySelector('.price'));
 
-    window.goToCart = function () {
-        window.location.href = "cart/index.html";
-    };
-
-    window.continueShopping = function () {
-        addedToCartModal.style.display = "none";
-    };
-
-    window.closeCartModal = function () {
-        addedToCartModal.style.display = "none";
-        emptyCartModal.style.display = "none";
-    };
-
-    window.addToCartModal = function () {
-        const quantityInput = document.getElementById("productQuantityAdd");
-        const quantity = quantityInput.value;
-
-        if (isValidQuantity(quantity)) {
-            addToCart(productLink, quantity, productName, productPrice);
-            updateCartItemCount();
-            closeQuantityModal();
-            openCartModal();
-        } else {
-            console.error("Invalid quantity.");
-        }
-    };
+            var quantity = prompt("Вкажіть кількість:");
+            if (quantity !== null && quantity !== "") {
+                addToCart(productLink, quantity, productName, productPrice);
+                alert("Товар додано");
+                updateCartItemCount();
+            }
+        });
+    });
 
     function updateCartItemCount() {
-        const cartItemCount = document.getElementById("cartItemCount");
-        const uniqueItemCount = getUniqueItemCount();
-        cartItemCount.innerText = uniqueItemCount;
+        cartItemCount.innerText = getUniqueItemCount();
     }
 
-    updateCartItemCount();
-
     function addToCart(productLink, quantity, productName, productPrice) {
-        const item = {
+        var item = {
             link: productLink,
             quantity: parseInt(quantity),
             name: productName,
@@ -197,15 +155,39 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function getUniqueItemCount() {
-        return new Set(cartItems.map(item => item.link)).size;
-    }
-
-    function isValidQuantity(quantity) {
-        return quantity !== null && quantity !== "" && !isNaN(quantity) && parseInt(quantity) > 0;
+        var uniqueItems = [];
+        cartItems.forEach(function (item) {
+            if (!uniqueItems.some(function (uniqueItem) {
+                return uniqueItem.link === item.link;
+            })) {
+                uniqueItems.push(item);
+            }
+        });
+        return uniqueItems.length;
     }
 
     function getPrice(element) {
-        const priceString = element.innerText.trim().replace("грн", "");
+        var priceString = element.innerText.trim().replace("грн", "");
         return parseFloat(priceString);
     }
+};
+
+
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 4,
+    spaceBetween: 0,
+    grabCursor: false,
+    navigation: {
+      nextEl: "#wrap1 .rightsw",
+      prevEl: "#wrap1 .leftsw",
+    },  
+});
+var swiper2 = new Swiper(".mySwiper2", {
+    slidesPerView: 4,
+    spaceBetween: 0,
+    grabCursor: false,
+    navigation: {
+      nextEl: "#wrap2 .rightsw",
+      prevEl: "#wrap2 .leftsw",
+    },  
 });

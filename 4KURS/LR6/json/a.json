@@ -1,0 +1,54 @@
+{
+    "products" : [
+      {
+        "note" : "new",
+        "category" : "Ігрові",
+        "image" : "media/odyssey.jpg",
+        "name": "Samsung Odyssey Ark S55BG970NI",
+        "link" : "rozetka.com",
+        "oldPrice" : null,
+        "price" : null,
+        "available" : false
+      },
+      {
+        "note" : null,
+        "category": "Для роботи з кольором",
+        "image": "media/BenQ.jpg",
+        "name": "BenQ SW321C",
+        "link" : "rozetka.com",
+        "oldPrice" : 55500,
+        "price" : 45500,
+        "available" : true
+      },
+      {
+        "note" : "hit",
+        "category": "Для роботи з текстом",
+        "image": "media/dell.jpg",
+        "name": "Dell UltraSharp U3821DW",
+        "link" : "rozetka.com",
+        "oldPrice" : 92000,
+        "price" : 80000,
+        "available" : true
+      },
+      {
+        "note" : null,
+        "category": "Сенсорні",
+        "image": "media/asus.jpg",
+        "name": "Asus ZenScreen MB16AHP",
+        "link" : "rozetka.com",
+        "oldPrice" : 80050,
+        "price" : 65205,
+        "available" : true
+      },
+      {
+        "note" : null,
+        "category": "Для роботи з кольором",
+        "image": "media/BenQ.jpg",
+        "name": "OTHER SW321C",
+        "link" : "rozetka.com",
+        "oldPrice" : 65500,
+        "price" : 55500,
+        "available" : true
+      }
+    ]
+  }

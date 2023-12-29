@@ -1,47 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
-    <title>Task 2</title>
+    <title>LR 6</title>
     <link rel="stylesheet" href="css/style.css" media="screen">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
 </head>
-
 <body>
-    <img class="cart" src="https://img.icons8.com/sf-regular-filled/48/shopping-cart.png" alt="shopping-cart" />
-    <span id="cartItemCount">0</span>
-    <div id="wrapper">
-        <div class="wrap" id="productCarousel">
-            <div class="wrap">
-                <div class="swipe leftsw" onclick="prevProduct()"> &#60;</div>
-                <div class="swipe rightsw" onclick="nextProduct()">&#62;</div>
-                <!-- Product panels will be dynamically added here -->
+    <div class="wrap" id="wrap1">
+        <div class="swipe leftsw">	&#60;</div>
+        <div class="swipe rightsw">&#62;</div>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper" id="products">
+
             </div>
         </div>
     </div>
+    <h2>Axios:</h2>
+    <div class="wrap" id="wrap2">
+        <div class="swipe leftsw">	&#60;</div>
+        <div class="swipe rightsw">&#62;</div>
+        <div class="swiper mySwiper2">
+            <div class="swiper-wrapper" id="productsAxios">
 
-    <div class="modal" id="addedToCartModal">
-        <span class="close" onclick="closeCartModal()">&times;</span>
-        <p>Товар додано: <span id="productNameAdd"></span> за <span id="productPriceAdd"></span> ₴ за
-            <span id="productQuantityAdd"></span> шт.</p>
-        <button class="btnToCart" onclick="goToCart()">Перейти у корзину</button>
-        <button class="btnContinueShopping" onclick="continueShopping()">Продовжити покупки</button>
+            </div>
+        </div>
     </div>
+    <img class="cart" src="https://img.icons8.com/sf-regular-filled/48/shopping-cart.png" alt="shopping-cart" />
+    <span id="cartItemCount">0</span>  
 
-    <div class="modal" id="emptyCartModal">
-        <span class="close" onclick="closeCartModal()">&times;</span>
-        <p>Корзина пуста</p>
-    </div>
-
-    <div class="modal" id="addingToCartModal">
-        <span class="close" id="addingToCartCloseBtn" onclick="closeQuantityModal()">&times;</span>
-        <p>Додати до кошика:</p>
-        <span id="productNameAdd"></span> Ціна за шт. <span id="productPriceAdd"></span> ₴</p> у кількості:
-        <input type="number" min="1" max="50" id="productQuantityAdd">
-        <p>Загальна вартість: <span id="totalPriceAdd"></span> ₴</p>
-        <button id="addToCartBtn" class="btnAdd addToCartBtn" onclick="addToCartModal()">Додати до корзини</button>
-    </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>	    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>    
     <script src="scripts/script.js"></script>
 </body>
 
