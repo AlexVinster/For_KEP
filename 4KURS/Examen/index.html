@@ -37,6 +37,18 @@
     display: none;
   }
   
+  #clearButton {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #1449da;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
   input:hover {
     border: 1px solid #3498db;
   }
@@ -47,49 +59,47 @@
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
   }
   
-  button {
-    padding: 10px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 14px;
-  }
-  
   button:hover {
     background-color: #2980b9;
   }
-  
 </style>
 <body>
 
   <label for="countryInput">Введіть країну:</label>
   <input type="text" id="countryInput">
   <p id="resultParagraph"></p>
+  <button id="clearButton">Очистити</button>
 
   <script>
-      document.getElementById('countryInput').addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-          event.preventDefault(); 
-          
-          const countryInput = document.getElementById('countryInput');
-          const countryValue = countryInput.value.trim(); 
-          
-          if (countryValue !== '') {
-            let resultParagraph = document.getElementById('resultParagraph');
-            
-            if (resultParagraph.textContent === '') {
-              resultParagraph.textContent = countryValue;
-            } else {
-              resultParagraph.textContent += ', ' + countryValue;
-            }
-            
-            resultParagraph.style.display = 'block';
-            countryInput.value = '';
+    const countryInput = document.getElementById('countryInput');
+    const clearButton = document.getElementById('clearButton');
+    const resultParagraph = document.getElementById('resultParagraph');
+
+    countryInput.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        event.preventDefault(); 
+
+        const countryValue = countryInput.value.trim(); 
+
+        if (countryValue !== '') {
+          if (resultParagraph.textContent === '') {
+            resultParagraph.textContent = countryValue;
+          } else {
+            resultParagraph.textContent += ', ' + countryValue;
           }
+
+          resultParagraph.style.display = 'block';
+          clearButton.style.display = 'block';
+          countryInput.value = '';
         }
-      });    
+      }
+    });
+
+    clearButton.addEventListener('click', function() {
+      resultParagraph.textContent = '';
+      resultParagraph.style.display = 'none';
+      clearButton.style.display = 'none';
+    });
   </script>
 
 </body>
