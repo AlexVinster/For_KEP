@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Country Input</title>
+</head>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input {
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  
+  #resultParagraph {
+    margin-top: 10px;
+    font-size: 16px;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    word-wrap: break-word;
+    display: none;
+  }
+  
+  input:hover {
+    border: 1px solid #3498db;
+  }
+  
+  input:focus {
+    outline: none;
+    border: 1px solid #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
+  
+</style>
+<body>
+
+  <label for="countryInput">Enter a country:</label>
+  <input type="text" id="countryInput">
+  <p id="resultParagraph"></p>
+
+  <script>
+    document.getElementById('countryInput').addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        event.preventDefault(); 
+        
+        var countryInput = document.getElementById('countryInput');
+        var countryValue = countryInput.value.trim(); 
+        
+        if (countryValue !== '') {
+          var resultParagraph = document.getElementById('resultParagraph');
+          
+          if (resultParagraph.textContent === '') {
+            resultParagraph.textContent = countryValue;
+          } else {
+            resultParagraph.textContent += ', ' + countryValue;
+          }
+          
+          resultParagraph.style.display = 'block';
+          countryInput.value = '';
+        }
+      }
+    });    
+  </script>
+
+</body>
+</html>
